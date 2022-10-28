@@ -2,26 +2,21 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="lols.MainPage">
-
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="55" />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-
-         <AbsoluteLayout x:Name="absolute" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0">
-
-         </AbsoluteLayout>
-
-         <Label
+    <Grid
+        RowDefinitions="50,*">
+        <Label
             x:Name="lols"
-            Grid.Row="0" Grid.Column="0" Margin="0,20,0,0" Padding="7"
+            Padding="7"
+            VerticalOptions="Start"
+            HorizontalOptions="Center"
             BackgroundColor="Red" TextColor="White"
-            VerticalOptions="Start" HorizontalOptions="Center" Text="LOL/s:"
+            Text="LOL/s:"
         />
-    </Grid>
+         <AbsoluteLayout
+            Grid.Row="1"
+            x:Name="absolute">
 
+    </AbsoluteLayout>
+    </Grid>
+   
 </ContentPage>
