@@ -1,0 +1,24 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="lols.Views.MainView">
+   <Grid Grid.RowDefinitions="50,*">
+       <TextBlock
+           x:Name="Lols"
+           Padding="7"
+           Background="Red"
+           Foreground="White"
+           VerticalAlignment="Top"
+           HorizontalAlignment="Center"
+           Text="LOL/s:" /> 
+       <Canvas
+            Grid.Row="1"
+            Loaded="Picture_OnLoaded"
+            x:Name="Picture" >
+           
+        </Canvas>
+     
+</Grid> 
+</UserControl>
