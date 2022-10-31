@@ -1,0 +1,14 @@
+{
+  "solution": {
+    "path": "lols.sln",
+    "projects": [
+		"lols.Shared\\lols.Shared.shproj",
+
+		"lols.Mobile\\lols.Mobile.csproj",
+
+		"lols.Wasm\\lols.Wasm.csproj",
+
+		"lols.Skia.Gtk\\lols.Skia.Gtk.csproj",
+    ]
+  }
+}
