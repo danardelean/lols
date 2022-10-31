@@ -28,7 +28,13 @@ public partial class MainPage : ContentPage
         stopwatch.Start();
         timer.Start();
 
-		StartOriginal();
+        //StartAlohaKit();
+
+        StartOriginal();
+
+        //StartT1();
+
+        //StartT2();
     }
 
     void StartOriginal()
@@ -38,7 +44,7 @@ public partial class MainPage : ContentPage
 
     void StartT1()
 	{
-        _ = Task.Factory.StartNew(RunTestNew, TaskCreationOptions.LongRunning);
+        _ = Task.Factory.StartNew(RunTestUIDispatcherPost, TaskCreationOptions.LongRunning);
     }
 
     void StartT2()
@@ -78,7 +84,7 @@ public partial class MainPage : ContentPage
                 count++;
             });
             //NOTE: plain Android we could put 1
-            Thread.Sleep(2);
+            Thread.Sleep(1);
         }
 
         stopwatch.Stop();
@@ -86,8 +92,50 @@ public partial class MainPage : ContentPage
     }
 
 
+    //void StartAlohaKit()
+    //{
+    //    _ = Task.Factory.StartNew(RunAlohaKit, TaskCreationOptions.LongRunning);
+    //}
+    //void RunAlohaKit()
+    //{
 
-    void RunTestNew()
+    //    var random = Random.Shared;
+
+    //    while (count < 5000)
+    //    {
+    //        Byte[] c = new Byte[3];
+    //        Random.Shared.NextBytes(c);
+    //        var label=new AlohaKit.UI.Label
+    //        {
+    //            X = (float)(random.NextDouble() * alohaCanvas.Width),
+    //            Y = (float)(random.NextDouble() * alohaCanvas.Height),
+    //            HeightRequest = 24,
+    //            WidthRequest = 80,
+    //            Text = "lol?",
+    //            TextColor = new Color(c[0], c[1], c[2])
+
+    //        };
+    //        Dispatcher.Dispatch(() =>
+    //        {
+             
+
+    //            if (alohaCanvas.Children.Count >= Max)
+    //                alohaCanvas.Children.RemoveAt(0);
+    //            alohaCanvas.Children.Add(label);
+    //            alohaCanvas.Invalidate();
+    //            count++;
+    //        });
+    //        //NOTE: plain Android we could put 1
+    //        Thread.Sleep(1);
+    //    }
+
+    //    stopwatch.Stop();
+    //    timer.Stop();
+    //}
+
+
+
+    void RunTestUIDispatcherPost()
 	{
 		var random = Random.Shared;
 
