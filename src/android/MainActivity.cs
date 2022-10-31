@@ -26,7 +26,7 @@ public class MainActivity : Activity
 
 		stopwatch.Start();
 		timer.Start();
-		_ = Task.Factory.StartNew(RunTest, TaskCreationOptions.LongRunning);
+		_ = Task.Factory.StartNew(RunTestBinded, TaskCreationOptions.LongRunning);
 	}
 
 	void OnTimer(object? sender, System.Timers.ElapsedEventArgs e)
@@ -38,7 +38,7 @@ public class MainActivity : Activity
 
 	void UpdateText(string text) => lols!.Text = text;
 
-	void RunTest()
+	void RunTestNative()
 	{
 		var random = Random.Shared;
 		int width = layout.Width;
@@ -66,4 +66,33 @@ public class MainActivity : Activity
 		stopwatch.Stop();
 		timer.Stop();
 	}
+
+    void RunTestBinded()
+    {
+        var random = Random.Shared;
+        int width = layout.Width;
+        int height = layout.Height;
+
+        //TODO: something better?
+        while (width == 0 || height == 0)
+        {
+            width = layout.Width;
+            height = layout.Height;
+        }
+
+        while (count < 5000)
+        {
+            var color = new Android.Graphics.Color(random.Next(byte.MaxValue), random.Next(byte.MaxValue), random.Next(byte.MaxValue));
+            var label = BindedHelper.CreateTextView(this, color, random.NextSingle() * 360, random.Next(width), random.Next(height));
+            RunOnUiThread(() =>
+            {
+                BindedHelper.Add(layout, label);
+                count++;
+            });
+            Thread.Sleep(1);
+        }
+
+        stopwatch.Stop();
+        timer.Stop();
+    }
 }
